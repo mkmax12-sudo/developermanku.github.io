@@ -348,3 +348,231 @@ With Lots of Love ❤️
 </div>
 
 </section>
+<section>
+
+<h2>🎂 Birthday Celebration 🎂</h2>
+
+<div class="card">
+
+<h2>Happy Birthday Yanu ❤️</h2>
+
+<p>
+Today is all about smiles, fun, love and happiness.<br><br>
+
+May every dream you have come true and may your life always be filled with joy.
+
+<br><br>
+
+🎉 Enjoy your Special Day 🎉
+
+</p>
+
+<button onclick="celebrate()">Celebrate 🎉</button>
+
+</div>
+
+</section>
+
+<footer>
+
+Made with ❤️ by <b>Chachu Mayank</b>
+
+</footer>
+
+<script>
+
+// Balloon Generator
+
+const colors=["#ff4d6d","#ffb703","#7b2cbf","#00c2ff","#4cd137","#ff66c4"];
+
+for(let i=0;i<25;i++){
+
+let b=document.createElement("div");
+
+b.className="balloon";
+
+b.style.left=Math.random()*100+"vw";
+
+b.style.animationDuration=(8+Math.random()*8)+"s";
+
+b.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+b.style.width=(40+Math.random()*30)+"px";
+
+b.style.height=(55+Math.random()*35)+"px";
+
+document.body.appendChild(b);
+
+}
+
+// Slideshow
+
+let imgs=document.querySelectorAll(".gallery img");
+
+let current=0;
+
+setInterval(()=>{
+
+imgs.forEach(img=>img.style.opacity="0.45");
+
+imgs[current].style.opacity="1";
+
+imgs[current].scrollIntoView({
+
+behavior:"smooth",
+
+block:"nearest",
+
+inline:"center"
+
+});
+
+current++;
+
+if(current>=imgs.length) current=0;
+
+},2500);
+
+
+// Confetti + Fireworks
+
+const canvas=document.getElementById("confetti");
+
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+function celebrate(){
+
+for(let i=0;i<250;i++){
+
+particles.push({
+
+x:canvas.width/2,
+
+y:canvas.height/2,
+
+dx:(Math.random()-0.5)*12,
+
+dy:(Math.random()-0.5)*12,
+
+size:4+Math.random()*5,
+
+color:colors[Math.floor(Math.random()*colors.length)]
+
+});
+
+}
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach((p,index)=>{
+
+ctx.fillStyle=p.color;
+
+ctx.beginPath();
+
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+
+ctx.fill();
+
+p.x+=p.dx;
+
+p.y+=p.dy;
+
+p.dy+=0.05;
+
+p.size*=0.99;
+
+if(p.size<0.5){
+
+particles.splice(index,1);
+
+}
+
+});
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
+
+window.addEventListener("resize",()=>{
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+});
+
+</script>
+<section>
+    <h2>🎂 A Special Wish 🎂</h2>
+    <div class="card">
+        <div style="font-size:90px;">🎂</div>
+        <h2>Happy Birthday Yanu ❤️</h2>
+        <p>
+            May your smile always shine brighter than the stars.<br>
+            May your life be full of happiness, success and endless joy.<br><br>
+
+            🌸 Stay blessed<br>
+            🌸 Keep smiling<br>
+            🌸 Keep shining
+        </p>
+    </div>
+</section>
+
+<audio id="music" controls autoplay loop style="margin:40px auto;display:block;">
+    <source src="birthday.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+</audio>
+
+<script>
+
+// Floating Hearts
+setInterval(()=>{
+    let h=document.createElement("div");
+    h.innerHTML="❤️";
+    h.style.position="fixed";
+    h.style.left=Math.random()*100+"vw";
+    h.style.bottom="-30px";
+    h.style.fontSize=(20+Math.random()*25)+"px";
+    h.style.animation="float 8s linear forwards";
+    h.style.pointerEvents="none";
+    document.body.appendChild(h);
+
+    setTimeout(()=>h.remove(),8000);
+
+},700);
+
+
+// Sparkles
+setInterval(()=>{
+    let s=document.createElement("div");
+    s.innerHTML="✨";
+    s.style.position="fixed";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=Math.random()*100+"vh";
+    s.style.fontSize="20px";
+    s.style.opacity=Math.random();
+    document.body.appendChild(s);
+
+    setTimeout(()=>s.remove(),1500);
+
+},300);
+
+celebrate();
+
+</script>
+
+</body>
+</html>
