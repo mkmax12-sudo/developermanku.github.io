@@ -532,13 +532,21 @@ canvas.height=window.innerHeight;
 </section>
 
 <script>
+<audio id="music" loop>
+    <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
 const audio = document.getElementById("music");
 
 document.addEventListener("click", function startMusic() {
-  audio.play().catch(console.error);
-  document.removeEventListener("click", startMusic);
+    audio.play().catch(console.error);
+    document.removeEventListener("click", startMusic);
 }, { once: true });
 </script>
+
+</body>
+</html>
 
 <script>
 
